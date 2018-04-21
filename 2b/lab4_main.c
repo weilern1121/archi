@@ -67,10 +67,11 @@ int main(int argc, char *argv[]) {
     int i, flag = 0;
     for (i = 0; i < argc; i++) {
         //todo- change strcmp
-        if (strcmp(argv[i], "-n") == 0)
+        if (strcmp(argv[i], "-n") == 0){
             i++;
-        filename = argv[i];
-        flag = 1;
+            filename = argv[i];
+            flag = 1;
+        }
     }
     if (flag == 1)
         file_name_search(".", filename);
@@ -116,8 +117,6 @@ void dir_search(char *path) {
                             dir_search(connect_strings(path, name));
                     }
                 }
-
-                //if(d_type ==)
                 //system_call(SYS_WRITE,STDOUT, d->d_name,simple_strlen(d->d_name));
 
                 //system_call(SYS_WRITE,STDOUT, (char *) "\n",1)
