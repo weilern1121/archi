@@ -20,7 +20,6 @@
 #define SYS_GETDENTS 78
 
 #define BUF_SIZE 1024
-#define handle_error(msg) \exit(EXIT_FAILURE);
 
 
 extern int system_call();
@@ -64,16 +63,16 @@ struct linux_dirent {
 
 int main(int argc, char *argv[]) {
     char *filename;
-    int i, flag = 0;
+    int i, flagN = 0;
     for (i = 0; i < argc; i++) {
         //todo- change strcmp
         if (strcmp(argv[i], "-n") == 0){
             i++;
             filename = argv[i];
-            flag = 1;
+            flagN = 1;
         }
     }
-    if (flag == 1)
+    if (flagN == 1)
         file_name_search(".", filename);
     else
         dir_search(".");
