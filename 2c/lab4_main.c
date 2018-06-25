@@ -77,12 +77,18 @@ int str_size(char *str) {
     for (i = 0; str[i] != '\0'; ++i);
     return i;
 }
-
+/*
+getdents()
+       The system call getdents() reads several linux_dirent structures from
+       the directory referred to by the open file descriptor fd into the
+       buffer pointed to by dirp.  The argument count specifies the size of
+       that buffer.
+       */
 struct linux_dirent {
-    long d_ino;
-    off_t d_off;
-    unsigned short d_reclen;
-    char d_name[];
+    long d_ino; 		/* Inode number */
+    off_t d_off;		/* Offset to next linux_dirent */
+    unsigned short d_reclen;	/* Length of this linux_dirent */
+    char d_name[];		/* Filename (null-terminated) */
 };
 
 int main(int argc, char *argv[]) {
